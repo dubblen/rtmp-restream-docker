@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  rtmp:
+    image: tiangolo/nginx-rtmp
+    ports:
+      - "1935:1935"
+    volumes:
+      - ./containers/rtmp/conf:/etc/nginx
+      
+  stunnel:
+    image: dweomer/stunnel
+    expose:
+      - "4433"
+    environment:
+      - "STUNNEL_SERVICE=rtmps"
+      - "STUNNEL_CLIENT=yes"
+      - "STUNNEL_ACCEPT=4433"
+      - "STUNNEL_CONNECT=live-api-s.facebook.com:443"
