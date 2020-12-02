@@ -41,6 +41,6 @@ docker-compose up
 
 Connect your streaming software to your restream server
 
-![](/home/madeta/projects/docker-rtmp-restream/obs1.png)
+![](./obs1.png)
 
 And you are ready to stream!
